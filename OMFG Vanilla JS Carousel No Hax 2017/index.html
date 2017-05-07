@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<!-- ~[ Stuff coded by Shynaio. Feel free to use my code however you want, just be sure to credit me somewhere (can be hidden in the HTML lol), ]~ -->
+<!-- ~[ and please show me the website your using this code on. Thanks :) ]~ -->
+
+<html>
+
+	<head>
+	
+		<title>
+			OMFG Vanilla JS Carousel No Hax 2017
+		</title>
+		
+		<meta charset="UTF-8">
+	
+	</head>
+
+	<body>
+	
+		<!-- Your carousel divs -->
+	
+		<div id="YourOMFGCarouselNoHax-Background">
+			<div id="YourOMFGCarouselNoHax">
+			</div>
+		</div>
+	
+	</body>
+	
+	<style>
+		html {
+			height: 100%;
+		}
+	
+		body {
+			margin: 0;
+			height: 100%;
+		}
+		
+		#YourOMFGCarouselNoHax-Background {
+			background: white; /* Here'll be the color when your website is loaded (images take a bit more time to load). I recommend you to let it to white. */
+			height: 100%;
+			width: 100%;
+		}
+		
+		#YourOMFGCarouselNoHax {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			
+			/* -- THIS PART IS MANDATORY -- */
+				transition: opacity 0.6s; /* LOLIMATAG */
+				background-image: url('slideshow0.png');
+			/* -- THIS PART IS MANDATORY -- */
+		}
+	</style>
+	
+	<script>
+	window.onload=function() {
+		bgVar = 0;
+		slideshowBG();
+	}
+	
+	function slideshowBG() {
+		var background = document.getElementById('YourOMFGCarouselNoHax'); /* Here enter your carousel ID */
+		var bg = "slideshow"; /* Here's the images name, they'll all have the same name but with a number next to it (ex: slideshow0.png, slideshow42.png, etc.) */
+		
+		setTimeout(function () {
+		
+			background.style.opacity="0";
+			document.getElementById('YourOMFGCarouselNoHax-Background').style.background="#001111"; /* Here enter the color of the fade, y'know, image -> fade -> image. */
+			bgVar++;
+			
+				setTimeout(function () {
+					background.style.backgroundImage="url('" + bg + bgVar + ".png')"; /* Here you should touch anything, you can just change your image extension (must always be the same.) */
+					background.style.opacity="1";
+				}, 600); /* Here'll be the fade time between each image in ms (600 = 0.6s) But if you change it here, change in the CSS as well, where the "LOLIMATAG" tag is. */
+			
+			if (bgVar == 3) { /* Here, change the number of "bgVar == ?" to your max slideshow image, like if you have 35 slideshow images, set it to 35. */
+				bgVar = 0;
+			}
+			
+			slideshowBG();
+		
+		}, 20000); /* Here's the time between each image in ms, just change it to your time in seconds and add three "0" after it, 20 seconds'll be "20000". */
+	
+	}
+	</script>
+	
+</html>
